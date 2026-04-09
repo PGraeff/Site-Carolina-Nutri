@@ -15,7 +15,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)]/80 bg-[var(--color-cream)]/90 backdrop-blur-md">
       <Container>
-        <div className="flex h-16 items-center justify-between gap-4 sm:h-[4.25rem]">
+        <div className="flex min-h-16 items-center justify-between gap-4 py-2 sm:min-h-[5rem] sm:py-2.5">
           <Link
             href="#inicio"
             className="flex shrink-0 items-center gap-2 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-sage)]"
@@ -24,10 +24,11 @@ export function Header() {
             <Image
               src={imagePaths.logoHeader}
               alt={`${siteConfig.name} — ${siteConfig.profession}`}
-              width={160}
-              height={48}
-              className="h-10 w-auto sm:h-11"
+              width={320}
+              height={96}
+              className="h-[3rem] w-auto max-w-[min(72vw,280px)] object-contain object-left drop-shadow-[0_1px_2px_rgba(42,42,42,0.08)] sm:h-[3.75rem] md:h-16"
               priority
+              sizes="(max-width: 768px) 72vw, 280px"
             />
           </Link>
 

@@ -49,7 +49,7 @@ Se não definir, em produção na Vercel o layout usa `VERCEL_URL` automaticamen
 |--------|------|
 | Textos, planos, links, WhatsApp, Instagram, e-mail, CRN, trust chips | `lib/site-config.ts` |
 | Preço no card (opcional) | Em cada plano, campo `priceLabel` (ex.: `"R$ 250,00"`) — se omitido, o valor não aparece |
-| **CRN** | Campo `crn` em `site-config.ts` (ex.: `CRN 12345/SP`) — aparece no hero (chip), rodapé, contato e “Sobre” |
+| **CRN** | Campo `crn` em `site-config.ts` — aparece no hero (chip), rodapé e contato |
 | URLs do WhatsApp com mensagem | `lib/whatsapp.ts` + `lib/contact.ts` |
 | Fotos e logos | `public/images/` e os campos em `imagePaths` em `lib/site-config.ts` |
 | SEO (título, descrição, OG) | `siteMetadata` em `lib/site-config.ts` e `app/layout.tsx` (`metadataBase`) |
@@ -60,7 +60,7 @@ Arquivos atuais (podem ser substituídos mantendo o nome ou atualizando `imagePa
 
 - `carolina-hero.png` — hero
 - `carolina-about.png` — sobre
-- `logo-light-bg.png` — cabeçalho/rodapé
+- `logo-light-bg.png` — cabeçalho
 - `logo-circular.png` — favicon / referência
 - Outras variantes de logo na mesma pasta
 

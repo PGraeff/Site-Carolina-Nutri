@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { CrnText } from "@/components/ui/CrnText";
 import { getGeneralWhatsAppHref } from "@/lib/contact";
-import { imagePaths, siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   const waHref = getGeneralWhatsAppHref();
@@ -11,14 +10,10 @@ export function Footer() {
     <footer className="border-t border-[var(--color-border)] bg-white/80 py-12">
       <Container>
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
-          <div className="flex flex-col gap-3">
-            <Image
-              src={imagePaths.logoFooter}
-              alt={`${siteConfig.name} — ${siteConfig.profession}`}
-              width={140}
-              height={42}
-              className="h-9 w-auto opacity-90"
-            />
+          <div className="flex flex-col gap-2">
+            <p className="font-serif text-lg font-semibold tracking-wide text-[var(--color-ink)]">
+              {siteConfig.name}
+            </p>
             <p className="font-sans text-sm text-[var(--color-muted)]">
               {siteConfig.profession} · {siteConfig.city}
             </p>

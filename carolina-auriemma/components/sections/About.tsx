@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { CrnText } from "@/components/ui/CrnText";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { imagePaths, siteConfig } from "@/lib/site-config";
 
@@ -88,8 +87,6 @@ export function About() {
             <p className="mt-8 font-serif text-lg font-medium italic text-[var(--color-sage-dark)] sm:text-xl">
               {siteConfig.taglineClosing}
             </p>
-
-            <CrnText variant="emphasis" className="mt-6 border-l-2 border-[var(--color-sage)]/40 pl-4" />
 
             <ul className="mt-10 grid gap-6 sm:grid-cols-1">
               {siteConfig.aboutHighlights.map((h, i) => (

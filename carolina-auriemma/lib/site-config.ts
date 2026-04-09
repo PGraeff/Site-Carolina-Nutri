@@ -33,7 +33,6 @@ export const imagePaths = {
   /** Optional second portrait; used in hero on large screens if desired */
   portraitAlt: "/images/carolina-portrait-2.png",
   logoHeader: "/images/logo-light-bg.png",
-  logoFooter: "/images/logo-light-bg.png",
   /** Decorative / OG fallback */
   logoMark: "/images/logo-circular.png",
 } as const;
@@ -45,9 +44,9 @@ export const siteConfig = {
   serviceMode: "Atendimento online e presencial",
   /**
    * Registro no Conselho Regional de Nutricionistas (ex.: "CRN 12345/SP").
-   * Aparece no hero (chip), rodapé, contato e seção Sobre quando preenchido.
+   * Aparece no hero (chip), rodapé e contato quando preenchido.
    */
-  crn: "" as string,
+  crn: "CRN-381894",
 
   instagramUrl: "https://www.instagram.com/nutri.carolauriemma",
   email: "nutri.carolauriemma@gmail.com",
