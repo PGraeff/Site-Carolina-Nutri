@@ -1,6 +1,6 @@
 /**
  * Builds WhatsApp click-to-chat URLs (wa.me) with optional pre-filled text.
- * Phone must include country code without + (e.g. "5511939454599").
+ * Phone must include country code without + (e.g. "5511939544599").
  */
 export function normalizeWhatsAppDigits(input: string): string {
   return input.replace(/\D/g, "");
