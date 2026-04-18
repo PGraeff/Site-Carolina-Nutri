@@ -46,10 +46,20 @@ export function Hero() {
               </ul>
             ) : null}
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href={waHref} external variant="whatsapp" className="w-full sm:w-auto">
-                Falar no WhatsApp
-              </Button>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-start">
+              <div className="flex w-full flex-col gap-3 sm:w-auto">
+                <Button href={waHref} external variant="whatsapp" className="w-full sm:w-auto">
+                  Falar no WhatsApp
+                </Button>
+                <Button
+                  href={siteConfig.instagramUrl}
+                  external
+                  variant="secondary"
+                  className="w-full sm:w-auto"
+                >
+                  Ver Instagram
+                </Button>
+              </div>
               <Button href="#planos" variant="secondary" className="w-full sm:w-auto">
                 Ver planos
               </Button>
