@@ -51,12 +51,12 @@ export const siteConfig = {
   instagramUrl: "https://www.instagram.com/nutri.carolauriemma",
   email: "nutri.carolauriemma@gmail.com",
   /** DDI + DDD + número, só dígitos */
-  whatsappPhone: "5511939454599",
+  whatsappPhone: "5511939544599",
   /**
    * Link direto de conversa (WhatsApp). Usado no botão flutuante e CTAs gerais
    * quando não há mensagem personalizada.
    */
-  whatsappQuickChatUrl: "https://wa.me/message/KCWUZKTYUV2MO1",
+  whatsappQuickChatUrl: "https://wa.me/5511939544599",
   whatsappDefaultMessage:
     "Olá, Carolina! Gostaria de agendar uma consulta.",
 
