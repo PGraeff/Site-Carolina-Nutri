@@ -61,7 +61,7 @@ export const siteConfig = {
     "Olá, Carolina! Gostaria de agendar uma consulta.",
   whatsappCtaMessages: {
     hero:
-      "Olá, Carolina! Vi seu site e gostaria de saber mais sobre o acompanhamento nutricional.",
+      "Olá, Carolina! Gostaria de mais informações sobre o seu atendimento nutricional.",
     header:
       "Olá, Carolina! Quero agendar uma consulta e entender qual plano é ideal para mim.",
     contact: "Olá, Carolina! Gostaria de agendar minha consulta nutricional.",
