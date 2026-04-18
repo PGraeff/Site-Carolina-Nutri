@@ -5,7 +5,7 @@ import { getGeneralWhatsAppHref } from "@/lib/contact";
 import { imagePaths, siteConfig } from "@/lib/site-config";
 
 export function Hero() {
-  const waHref = getGeneralWhatsAppHref();
+  const waHref = getGeneralWhatsAppHref("hero");
   const trust = [
     ...siteConfig.trustItems.map((t) => t.label),
     ...(siteConfig.crn?.trim() ? [siteConfig.crn.trim()] : []),

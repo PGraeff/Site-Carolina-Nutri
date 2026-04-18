@@ -2,7 +2,7 @@ import { getGeneralWhatsAppHref } from "@/lib/contact";
 import { siteConfig } from "@/lib/site-config";
 
 export function FloatingWhatsApp() {
-  const href = getGeneralWhatsAppHref();
+  const href = getGeneralWhatsAppHref("floating");
 
   return (
     <a

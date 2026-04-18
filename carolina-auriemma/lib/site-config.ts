@@ -59,6 +59,17 @@ export const siteConfig = {
   whatsappQuickChatUrl: "https://wa.me/5511939544599",
   whatsappDefaultMessage:
     "Olá, Carolina! Gostaria de agendar uma consulta.",
+  whatsappCtaMessages: {
+    hero:
+      "Olá, Carolina! Vi seu site e gostaria de saber mais sobre o acompanhamento nutricional.",
+    header:
+      "Olá, Carolina! Quero agendar uma consulta e entender qual plano é ideal para mim.",
+    contact: "Olá, Carolina! Gostaria de agendar minha consulta nutricional.",
+    floating:
+      "Olá, Carolina! Vim pelo botão do WhatsApp e quero tirar uma dúvida sobre seu atendimento.",
+    footer:
+      "Olá, Carolina! Vi seus contatos no site e gostaria de falar sobre consulta.",
+  },
 
   headline:
     "Nutrição personalizada para uma rotina mais leve, equilibrada e sustentável.",

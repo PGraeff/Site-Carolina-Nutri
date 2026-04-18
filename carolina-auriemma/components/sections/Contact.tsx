@@ -5,7 +5,7 @@ import { getGeneralWhatsAppHref } from "@/lib/contact";
 import { siteConfig } from "@/lib/site-config";
 
 export function Contact() {
-  const waHref = getGeneralWhatsAppHref();
+  const waHref = getGeneralWhatsAppHref("contact");
 
   return (
     <section
