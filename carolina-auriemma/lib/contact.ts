@@ -1,15 +1,35 @@
 import { siteConfig } from "@/lib/site-config";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
-/** WhatsApp geral (botão flutuante, hero, contato) — usa link rápido se configurado */
-export function getGeneralWhatsAppHref(): string {
-  if (siteConfig.whatsappQuickChatUrl?.trim()) {
-    return siteConfig.whatsappQuickChatUrl.trim();
+export type GeneralWhatsAppCta = keyof typeof siteConfig.whatsappCtaMessages;
+
+function appendMessageToUrl(url: string, message: string): string {
+  const trimmedMessage = message.trim();
+  if (!trimmedMessage) {
+    return url;
   }
-  return buildWhatsAppUrl(
-    siteConfig.whatsappPhone,
-    siteConfig.whatsappDefaultMessage
-  );
+
+  try {
+    const parsed = new URL(url);
+    parsed.searchParams.set("text", trimmedMessage);
+    return parsed.toString();
+  } catch {
+    const joiner = url.includes("?") ? "&" : "?";
+    return `${url}${joiner}text=${encodeURIComponent(trimmedMessage)}`;
+  }
+}
+
+/** WhatsApp geral (botão flutuante, hero, contato) com mensagem por contexto */
+export function getGeneralWhatsAppHref(cta?: GeneralWhatsAppCta): string {
+  const message =
+    (cta ? siteConfig.whatsappCtaMessages[cta] : undefined) ??
+    siteConfig.whatsappDefaultMessage;
+
+  if (siteConfig.whatsappQuickChatUrl?.trim()) {
+    return appendMessageToUrl(siteConfig.whatsappQuickChatUrl.trim(), message);
+  }
+
+  return buildWhatsAppUrl(siteConfig.whatsappPhone, message);
 }
 
 export function getPlanWhatsAppHref(message: string): string {

@@ -10,7 +10,7 @@ import { imagePaths, siteConfig } from "@/lib/site-config";
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const waHref = getGeneralWhatsAppHref();
+  const waHref = getGeneralWhatsAppHref("header");
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)]/80 bg-[var(--color-cream)]/90 backdrop-blur-md">

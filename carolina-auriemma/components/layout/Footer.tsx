@@ -4,7 +4,7 @@ import { getGeneralWhatsAppHref } from "@/lib/contact";
 import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
-  const waHref = getGeneralWhatsAppHref();
+  const waHref = getGeneralWhatsAppHref("footer");
 
   return (
     <footer className="border-t border-[var(--color-border)] bg-white/80 py-12">
