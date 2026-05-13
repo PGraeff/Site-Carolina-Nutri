@@ -50,8 +50,10 @@ export function Button(props: ButtonProps) {
   const { children, className = "", variant = "primary" } = props;
   const styles = `${base} ${variants[variant]} ${className}`;
 
-  const handleWhatsAppConversion = () => {
-    if (variant !== "whatsapp") return;
+  const isWhatsAppHref = (href: string) => /(?:wa\.me|whatsapp\.com)/i.test(href);
+
+  const handleWhatsAppConversion = (href?: string) => {
+    if (!href || !isWhatsAppHref(href)) return;
 
     if (typeof window.gtag_report_conversion === "function") {
       window.gtag_report_conversion();
@@ -76,7 +78,7 @@ export function Button(props: ButtonProps) {
           className={styles}
           rel="noopener noreferrer"
           target="_blank"
-          onClick={handleWhatsAppConversion}
+          onClick={() => handleWhatsAppConversion(href)}
         >
           {children}
         </a>
