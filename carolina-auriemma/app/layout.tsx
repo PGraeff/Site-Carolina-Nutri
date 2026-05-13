@@ -50,23 +50,6 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-18159204384');
-
-            window.gtag_report_conversion = function(url) {
-              var callback = function () {
-                if (typeof url !== 'undefined') {
-                  window.location = url;
-                }
-              };
-
-              gtag('event', 'conversion', {
-                send_to: 'AW-18159204384/NCeACJWilawcEKDw_dJD',
-                value: 1.0,
-                currency: 'BRL',
-                event_callback: callback
-              });
-
-              return false;
-            };
           `}
         </Script>
         <a
