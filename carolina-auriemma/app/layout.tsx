@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import { siteMetadata } from "@/lib/site-config";
@@ -39,6 +40,18 @@ export default function RootLayout({
       className={`${cormorant.variable} ${montserrat.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full bg-[var(--color-cream)] font-sans text-[var(--color-ink)]">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18159204384"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18159204384');
+          `}
+        </Script>
         <a
           href="#conteudo-principal"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-[var(--color-ink)] focus:shadow-lg focus:outline focus:outline-2 focus:outline-[var(--color-sage)]"
