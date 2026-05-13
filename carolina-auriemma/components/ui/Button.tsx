@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "whatsapp" | "ghost";
 
@@ -56,7 +56,14 @@ export function Button(props: ButtonProps) {
     if (!href || !isWhatsAppHref(href)) return;
 
     if (typeof window.gtag_report_conversion === "function") {
-      window.gtag_report_conversion();
+      window.gtag_report_conversion(shouldWaitForCallback ? href : undefined);
+
+      if (shouldWaitForCallback) {
+        window.setTimeout(() => {
+          window.location.href = href;
+        }, 2100);
+      }
+
       return;
     }
 
@@ -65,7 +72,26 @@ export function Button(props: ButtonProps) {
         send_to: "AW-18159204384/NCeACJWilawcEKDw_dJD",
         value: 1,
         currency: "BRL",
+        transport_type: "beacon",
+        event_callback: shouldWaitForCallback
+          ? () => {
+              window.location.href = href;
+            }
+          : undefined,
+        event_timeout: shouldWaitForCallback ? 2000 : undefined,
       });
+
+      if (shouldWaitForCallback) {
+        window.setTimeout(() => {
+          window.location.href = href;
+        }, 2100);
+      }
+
+      return;
+    }
+
+    if (shouldWaitForCallback) {
+      window.location.href = href;
     }
   };
 
@@ -85,7 +111,7 @@ export function Button(props: ButtonProps) {
       );
     }
     return (
-      <Link href={href} className={styles}>
+      <Link href={href} className={styles} onClick={(event) => handleWhatsAppConversion(event, href)}>
         {children}
       </Link>
     );
