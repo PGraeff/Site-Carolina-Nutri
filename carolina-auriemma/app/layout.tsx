@@ -1,22 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import { siteMetadata } from "@/lib/site-config";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 const metadataBaseUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
@@ -37,7 +23,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${cormorant.variable} ${montserrat.variable} h-full scroll-smooth antialiased`}
+      className="h-full scroll-smooth antialiased"
     >
       <body className="min-h-full bg-[var(--color-cream)] font-sans text-[var(--color-ink)]">
         <Script
