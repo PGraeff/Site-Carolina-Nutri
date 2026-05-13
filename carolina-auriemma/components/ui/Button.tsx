@@ -52,18 +52,8 @@ export function Button(props: ButtonProps) {
 
   const isWhatsAppHref = (href: string) => /(?:wa\.me|whatsapp\.com)/i.test(href);
 
-  const handleWhatsAppConversion = (
-    event: MouseEvent<HTMLAnchorElement>,
-    href: string,
-    opensInNewTab = false,
-  ) => {
-    if (!isWhatsAppHref(href)) return;
-
-    const shouldWaitForCallback = !opensInNewTab;
-
-    if (shouldWaitForCallback) {
-      event.preventDefault();
-    }
+  const handleWhatsAppConversion = (href?: string) => {
+    if (!href || !isWhatsAppHref(href)) return;
 
     if (typeof window.gtag_report_conversion === "function") {
       window.gtag_report_conversion(shouldWaitForCallback ? href : undefined);
@@ -114,7 +104,7 @@ export function Button(props: ButtonProps) {
           className={styles}
           rel="noopener noreferrer"
           target="_blank"
-          onClick={(event) => handleWhatsAppConversion(event, href, true)}
+          onClick={() => handleWhatsAppConversion(href)}
         >
           {children}
         </a>
