@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -23,6 +25,13 @@ type ButtonAsButton = Common & {
 
 export type ButtonProps = ButtonAsLink | ButtonAsButton;
 
+declare global {
+  interface Window {
+    gtag_report_conversion?: (url?: string) => boolean;
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 const base =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-center text-sm font-medium tracking-wide transition-[color,background-color,box-shadow,transform] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] sm:text-[0.9375rem]";
 
@@ -41,6 +50,23 @@ export function Button(props: ButtonProps) {
   const { children, className = "", variant = "primary" } = props;
   const styles = `${base} ${variants[variant]} ${className}`;
 
+  const handleWhatsAppConversion = () => {
+    if (variant !== "whatsapp") return;
+
+    if (typeof window.gtag_report_conversion === "function") {
+      window.gtag_report_conversion();
+      return;
+    }
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: "AW-18159204384/NCeACJWilawcEKDw_dJD",
+        value: 1,
+        currency: "BRL",
+      });
+    }
+  };
+
   if ("href" in props && props.href) {
     const { href, external } = props;
     if (external) {
@@ -50,6 +76,7 @@ export function Button(props: ButtonProps) {
           className={styles}
           rel="noopener noreferrer"
           target="_blank"
+          onClick={handleWhatsAppConversion}
         >
           {children}
         </a>
